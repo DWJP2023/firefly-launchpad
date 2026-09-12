@@ -1,8 +1,11 @@
 # Firefly Entertainment — Bilingual Site Plan
 
-## Note before building
+## Approved logo asset
 
-No Firefly logo file exists in the project yet. Please upload the logo (PNG with transparency, or SVG). Until it arrives, the landing page will show a clearly marked placeholder box in the logo's place. The exact accent purple will be sampled from the uploaded file; until then a close violet stand-in is used.
+- Use the uploaded black-and-white Firefly logo exactly as provided.
+- Place the black logo on the white website background; no recoloring, redrawing, distortion, cropping, or background added.
+- The logo is stored as the project's primary brand asset and referenced directly; no placeholder is needed.
+- Do not sample colors from this black-and-white logo.
 
 ## Sitemap
 
@@ -27,10 +30,10 @@ Home per language uses in-page anchored sections so each language version is one
 ## Landing page
 
 - White background, nothing else on screen but centered content
-- Logo, centered, generous space around it
+- Black-and-white Firefly logo, centered, generous space around it
 - Tagline "The Show Must Go On" below, small caps-ish, wide letter spacing, dark charcoal
 - Below that, two plain text choices: `English` and `中文`, separated by a thin divider
-- Hover on a language: a fine 1px line under it fades in using the logo's blue → violet → magenta gradient
+- Hover on a language: a fine 1px line under it fades in using the restrained violet-purple accent
 - No menu, no imagery, no footer clutter
 
 ## Team page (/en/team, /zh/team)
@@ -41,7 +44,7 @@ Home per language uses in-page anchored sections so each language version is one
 
 ## Internal page sections
 
-- **About Firefly Entertainment** — short positioning paragraph, no claims, no numbers
+- **About Firefly Entertainment** — short positioning paragraph, no claims, no numbers; "FUN AND BRANDED" appears once as an existing brand descriptor
 - **What We Do** — three or four service areas as plain text cards; I will draft neutral wording for you to correct
 - **Our Approach** — three short principles
 - **Contact** — david@fireflyentertainment.net as a mailto link, nothing more
@@ -50,12 +53,15 @@ No clients, artists, awards, stats, testimonials, offices, or certifications any
 
 ## Visual system
 
+- Palette: mostly black, white, light gray, and dark charcoal; one restrained violet-purple accent only for links, small marks, focus rings, and fine details
+- No colorful logo, no large color gradients, no gradient panels or backgrounds
 - Surfaces: white primary, very light gray for alternating section bands
 - Text: dark charcoal; muted gray for secondary lines
-- Accent: single violet-purple sampled from the logo — used on links, small marks, focus rings
-- Gradient (blue → violet → magenta): only hairline accents and hover underlines
+- Accent usage: links, focus rings, small marks, and the 1px language hover underline only
 - Type: one refined sans for both languages, with a Chinese-capable fallback stack; generous line height, restrained sizes
-- No shadows or gradients on panels; light theme only; no dark mode toggle
+- Layout: mobile-first, wide margins on desktop, comfortable spacing on small screens, generous vertical rhythm
+- Light theme only; no dark mode toggle
+- Overall feel: restrained, minimal, modern, editorial, premium
 
 ## Responsive behavior
 
