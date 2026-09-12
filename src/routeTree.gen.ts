@@ -10,33 +10,71 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnRouteImport } from './routes/en'
+import { Route as ZhRouteImport } from './routes/zh'
+import { Route as EnTeamRouteImport } from './routes/en.team'
+import { Route as ZhTeamRouteImport } from './routes/zh.team'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnRoute = EnRouteImport.update({
+  id: '/en',
+  path: '/en',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhRoute = ZhRouteImport.update({
+  id: '/zh',
+  path: '/zh',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnTeamRoute = EnTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => EnRoute,
+} as any)
+const ZhTeamRoute = ZhTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => ZhRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/en': typeof EnRouteWithChildren
+  '/zh': typeof ZhRouteWithChildren
+  '/en/team': typeof EnTeamRoute
+  '/zh/team': typeof ZhTeamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/en': typeof EnRouteWithChildren
+  '/zh': typeof ZhRouteWithChildren
+  '/en/team': typeof EnTeamRoute
+  '/zh/team': typeof ZhTeamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/en': typeof EnRouteWithChildren
+  '/zh': typeof ZhRouteWithChildren
+  '/en/team': typeof EnTeamRoute
+  '/zh/team': typeof ZhTeamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/en' | '/zh' | '/en/team' | '/zh/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/en' | '/zh' | '/en/team' | '/zh/team'
+  id: '__root__' | '/' | '/en' | '/zh' | '/en/team' | '/zh/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EnRoute: typeof EnRouteWithChildren
+  ZhRoute: typeof ZhRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +86,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en': {
+      id: '/en'
+      path: '/en'
+      fullPath: '/en'
+      preLoaderRoute: typeof EnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh': {
+      id: '/zh'
+      path: '/zh'
+      fullPath: '/zh'
+      preLoaderRoute: typeof ZhRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/team': {
+      id: '/en/team'
+      path: '/team'
+      fullPath: '/en/team'
+      preLoaderRoute: typeof EnTeamRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/zh/team': {
+      id: '/zh/team'
+      path: '/team'
+      fullPath: '/zh/team'
+      preLoaderRoute: typeof ZhTeamRouteImport
+      parentRoute: typeof ZhRoute
+    }
   }
 }
 
+interface EnRouteChildren {
+  EnTeamRoute: typeof EnTeamRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnTeamRoute: EnTeamRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
+
+interface ZhRouteChildren {
+  ZhTeamRoute: typeof ZhTeamRoute
+}
+
+const ZhRouteChildren: ZhRouteChildren = {
+  ZhTeamRoute: ZhTeamRoute,
+}
+
+const ZhRouteWithChildren = ZhRoute._addFileChildren(ZhRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EnRoute: EnRouteWithChildren,
+  ZhRoute: ZhRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
