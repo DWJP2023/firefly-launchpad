@@ -23,11 +23,10 @@ Single-page-per-language, with in-page anchored sections so each language versio
 - Hover on a language: a fine 1px line under it fades in using the logo's blue → violet → magenta gradient
 - No menu, no imagery, no footer clutter
 
-## Three tagline options
+## Two tagline options
 
 1. **Fun, By Design** — 有趣，是设计出来的
 2. **Entertainment, Made Memorable** — 让娱乐被记住
-3. **Where Brands Come To Play** — 让品牌玩起来
 
 "FUN AND BRANDED" stays as an existing brand descriptor, used once in the About copy, not as the tagline. Pick one option (or ask for another round) before I build.
 
