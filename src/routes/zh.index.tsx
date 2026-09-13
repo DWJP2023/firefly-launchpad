@@ -10,6 +10,12 @@ export const Route = createFileRoute("/zh/")({
       { property: "og:title", content: content.zh.meta.title },
       { property: "og:description", content: content.zh.meta.description },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: "https://www.fireflyentertainment.net/brand/og-zh.png",
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary" },
     ],
     links: [

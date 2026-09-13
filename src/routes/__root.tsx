@@ -10,6 +10,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { jsonLdScript, organizationJsonLd } from "../lib/firefly/jsonld";
 
 function NotFoundComponent() {
   return (
@@ -76,26 +77,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#ffffff" },
       { title: "Firefly Entertainment" },
       { name: "description", content: "Firefly Entertainment — The Show Must Go On." },
       { name: "author", content: "Firefly Entertainment" },
-      { property: "og:title", content: "Firefly Entertainment" },
-      { property: "og:description", content: "Firefly Entertainment — The Show Must Go On." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap",
-      },
       {
         rel: "stylesheet",
         href: appCss,
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      {
+        rel: "icon",
+        href: "/brand/favicon-32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/brand/apple-touch-icon-180.png",
+        sizes: "180x180",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: jsonLdScript(organizationJsonLd),
+      },
     ],
   }),
   shellComponent: RootShell,

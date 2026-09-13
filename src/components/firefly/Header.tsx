@@ -34,7 +34,7 @@ export function Header({
           to={homePath}
           className="flex min-w-0 items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <Logo className="h-8 w-auto shrink-0" />
+          <Logo className="h-7 w-auto shrink-0" />
           <span className="sr-only">{content.siteName}</span>
         </Link>
 

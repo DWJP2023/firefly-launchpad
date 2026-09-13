@@ -7,16 +7,20 @@ export const Route = createFileRoute("/")({
       { title: "Firefly Entertainment — The Show Must Go On" },
       {
         name: "description",
-        content:
-          "Firefly Entertainment — choose English or 中文 to enter.",
+        content: "Firefly Entertainment — choose English or 中文 to enter.",
       },
       { property: "og:title", content: "Firefly Entertainment — The Show Must Go On" },
       {
         property: "og:description",
-        content:
-          "Firefly Entertainment — choose English or 中文 to enter.",
+        content: "Firefly Entertainment — choose English or 中文 to enter.",
       },
       { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: "https://www.fireflyentertainment.net/brand/og-en.png",
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
