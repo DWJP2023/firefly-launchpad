@@ -1,25 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { HomePage } from "@/components/firefly/HomePage";
+import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
+import { Header } from "@/components/firefly/Header";
 import { content } from "@/lib/firefly/content";
 
 export const Route = createFileRoute("/zh")({
-  head: () => ({
-    meta: [
-      { title: content.zh.meta.title },
-      { name: "description", content: content.zh.meta.description },
-      { property: "og:title", content: content.zh.meta.title },
-      { property: "og:description", content: content.zh.meta.description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-    ],
-    links: [
-      { rel: "canonical", href: "/zh" },
-      { rel: "alternate", hrefLang: "en", href: "/en" },
-    ],
-  }),
-  component: ChineseHome,
+  component: ChineseLayout,
 });
 
-function ChineseHome() {
-  return <HomePage lang="zh" content={content.zh} />;
+function ChineseLayout() {
+  const { pathname } = useLocation();
+  const page = pathname.startsWith("/zh/team") ? "team" : "home";
+
+  return (
+    <>
+      <Header lang="zh" page={page} content={content.zh} />
+      <Outlet />
+    </>
+  );
 }
