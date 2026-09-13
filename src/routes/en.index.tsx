@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomeContent } from "@/components/firefly/HomePage";
 import { content } from "@/lib/firefly/content";
+import { faqJsonLd, jsonLdScript, siteUrl } from "@/lib/firefly/jsonld";
 
 export const Route = createFileRoute("/en/")({
   head: () => ({
@@ -19,8 +20,16 @@ export const Route = createFileRoute("/en/")({
       { name: "twitter:card", content: "summary" },
     ],
     links: [
-      { rel: "canonical", href: "/en" },
-      { rel: "alternate", hrefLang: "zh", href: "/zh" },
+      { rel: "canonical", href: `${siteUrl}/en` },
+      { rel: "alternate", hrefLang: "en", href: `${siteUrl}/en` },
+      { rel: "alternate", hrefLang: "zh-Hans", href: `${siteUrl}/zh` },
+      { rel: "alternate", hrefLang: "x-default", href: `${siteUrl}/` },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: jsonLdScript(faqJsonLd("en", content.en.faq)),
+      },
     ],
   }),
   component: EnglishHome,

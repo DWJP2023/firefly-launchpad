@@ -1,99 +1,128 @@
+import { Footer } from "./Footer";
 import { type PageContent } from "@/lib/firefly/content";
 
 export function HomeContent({ content }: { content: PageContent }) {
   return (
-    <main>
-      <section
-        id="about"
-        className="bg-white px-6 py-24 md:py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {content.nav.about}
-          </p>
-          <h1 className="mt-6 text-3xl font-medium leading-tight tracking-tight text-foreground md:text-4xl">
-            {content.sections.about.title}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            {content.sections.about.body}
-          </p>
-        </div>
-      </section>
-
-      <section
-        id="what-we-do"
-        className="bg-muted px-6 py-24 md:py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {content.nav.whatWeDo}
-          </p>
-          <h2 className="mt-6 text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-            {content.sections.whatWeDo.title}
-          </h2>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {content.sections.whatWeDo.items.map((item) => (
-              <div key={item.title} className="bg-white p-6">
-                <h3 className="text-lg font-medium text-foreground">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+    <>
+      <main id="main-content">
+        <section id="about" className="bg-white px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                {content.brandLine}
+              </p>
+              <h1 className="mt-6 text-3xl font-medium leading-tight tracking-tight text-foreground md:text-4xl">
+                {content.sections.about.title}
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {content.sections.about.body}
+              </p>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {content.sections.about.clients}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section
-        id="approach"
-        className="bg-white px-6 py-24 md:py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {content.nav.approach}
-          </p>
-          <h2 className="mt-6 text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-            {content.sections.approach.title}
-          </h2>
-          <dl className="mt-10 space-y-8">
-            {content.sections.approach.items.map((item) => (
-              <div key={item.title}>
-                <dt className="text-lg font-medium text-foreground">
-                  {item.title}
-                </dt>
-                <dd className="mt-2 text-base leading-relaxed text-muted-foreground">
-                  {item.description}
-                </dd>
+        <section id="services" className="bg-muted px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
+              {content.sections.services.title}
+            </h2>
+            <div className="mt-10 grid gap-px border border-border bg-border md:grid-cols-2">
+              {content.sections.services.items.map((item) => (
+                <article key={item.index} className="bg-muted p-6 md:p-8">
+                  <p className="text-sm font-medium tracking-[0.16em] text-primary">{item.index}</p>
+                  <h3 className="mt-6 text-xl font-medium text-foreground">{item.title}</h3>
+                  <p className="mt-4 leading-relaxed text-muted-foreground">{item.description}</p>
+                  <p className="mt-5 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
+                    {item.deliverable}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="track-record" className="bg-white px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
+              {content.sections.trackRecord.title}
+            </h2>
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              {content.sections.trackRecord.note}
+            </p>
+            <div className="mt-12 grid gap-10 md:grid-cols-3">
+              {content.sections.trackRecord.groups.map((group) => (
+                <section key={group.title}>
+                  <h3 className="text-lg font-medium text-foreground">{group.title}</h3>
+                  <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="bg-muted px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
+              {content.faq.title}
+            </h2>
+            <div className="mt-10 max-w-3xl divide-y divide-border border-y border-border">
+              {content.faq.items.map((item) => (
+                <article key={item.question} className="py-8">
+                  <h3 className="text-lg font-medium leading-relaxed text-foreground">
+                    {item.question}
+                  </h3>
+                  {item.answer.split("\n\n").map((paragraph) => (
+                    <p key={paragraph} className="mt-4 leading-relaxed text-muted-foreground">
+                      {paragraph}
+                    </p>
+                  ))}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="bg-white px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
+                {content.sections.contact.title}
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {content.sections.contact.body}
+              </p>
+              <h3 className="mt-12 text-lg font-medium text-foreground">
+                {content.sections.contact.briefTitle}
+              </h3>
+              <ol className="mt-5 list-decimal space-y-3 pl-5 leading-relaxed text-muted-foreground">
+                {content.sections.contact.brief.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ol>
+              <div className="mt-12 space-y-2 text-base leading-relaxed">
+                <p className="font-medium text-foreground">{content.sections.contact.name}</p>
+                <p className="text-muted-foreground">{content.sections.contact.role}</p>
+                <a
+                  href={`mailto:${content.sections.contact.email}`}
+                  className="inline-flex h-11 items-center text-primary underline decoration-1 underline-offset-4 transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  {content.sections.contact.email}
+                </a>
+                <p className="text-muted-foreground">{content.sections.contact.phone}</p>
+                <p className="text-muted-foreground">{content.sections.contact.locations}</p>
               </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        className="bg-muted px-6 py-24 md:py-32 lg:px-8"
-      >
-        <div className="mx-auto max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-            {content.nav.contact}
-          </p>
-          <h2 className="mt-6 text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-            {content.sections.contact.title}
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            {content.sections.contact.body}
-          </p>
-          <a
-            href={`mailto:${content.sections.contact.email}`}
-            className="mt-8 inline-flex h-11 items-center text-base font-medium text-primary underline decoration-1 underline-offset-4 transition-colors hover:text-primary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            {content.sections.contact.emailLabel}: {content.sections.contact.email}
-          </a>
-        </div>
-      </section>
-    </main>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer lang={content.lang} page="home" content={content} />
+    </>
   );
 }

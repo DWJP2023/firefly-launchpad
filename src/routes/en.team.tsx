@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TeamContent } from "@/components/firefly/TeamPage";
 import { content } from "@/lib/firefly/content";
-import { jsonLdScript, teamJsonLd } from "@/lib/firefly/jsonld";
+import { jsonLdScript, siteUrl, teamJsonLd } from "@/lib/firefly/jsonld";
 
 export const Route = createFileRoute("/en/team")({
   head: () => ({
     meta: [
-      { title: `Team — ${content.en.siteName}` },
-      { name: "description", content: content.en.meta.description },
-      { property: "og:title", content: `Team — ${content.en.siteName}` },
-      { property: "og:description", content: content.en.meta.description },
+      { title: content.en.teamMeta.title },
+      { name: "description", content: content.en.teamMeta.description },
+      { property: "og:title", content: content.en.teamMeta.title },
+      { property: "og:description", content: content.en.teamMeta.description },
       { property: "og:type", content: "website" },
       {
         property: "og:image",
@@ -20,8 +20,10 @@ export const Route = createFileRoute("/en/team")({
       { name: "twitter:card", content: "summary" },
     ],
     links: [
-      { rel: "canonical", href: "/en/team" },
-      { rel: "alternate", hrefLang: "zh", href: "/zh/team" },
+      { rel: "canonical", href: `${siteUrl}/en/team` },
+      { rel: "alternate", hrefLang: "en", href: `${siteUrl}/en/team` },
+      { rel: "alternate", hrefLang: "zh-Hans", href: `${siteUrl}/zh/team` },
+      { rel: "alternate", hrefLang: "x-default", href: `${siteUrl}/` },
     ],
     scripts: [
       {

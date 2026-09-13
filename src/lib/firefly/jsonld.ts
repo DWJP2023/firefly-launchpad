@@ -1,4 +1,4 @@
-const siteUrl = "https://www.fireflyentertainment.net";
+export const siteUrl = "https://www.fireflyentertainment.net";
 const organizationId = `${siteUrl}/#organization`;
 const davidLinkedIn = "https://www.linkedin.com/in/davidwhj/";
 const fireflyLinkedIn = "https://www.linkedin.com/company/106199096/";
@@ -55,10 +55,10 @@ const team = {
     ["yifeng", "Yifeng Zou", "Production director"],
   ],
   zh: [
-    ["david", "王璟平", "Chief Executive Officer"],
-    ["allen", "陈煜林", "Project director, artist and touring operations"],
-    ["jason", "陶坚亮", "VP Production"],
-    ["yifeng", "邹一峰", "Production director"],
+    ["david", "王璟平", "首席执行官"],
+    ["allen", "陈煜林", "项目总监，艺人与巡演运营"],
+    ["jason", "陶坚亮", "制作副总裁"],
+    ["yifeng", "邹一峰", "制作总监"],
   ],
 } as const;
 
@@ -72,6 +72,26 @@ export function teamJsonLd(language: "en" | "zh"): JsonLd[] {
     worksFor: { "@id": organizationId },
     ...(id === "david" ? { sameAs: [davidLinkedIn] } : {}),
   }));
+}
+
+export function faqJsonLd(
+  language: "en" | "zh",
+  faq: { items: { question: string; answer: string }[] },
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteUrl}/${language}#faq`,
+    inLanguage: language === "zh" ? "zh-Hans" : "en",
+    mainEntity: faq.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 }
 
 export function jsonLdScript(data: JsonLd | JsonLd[]) {

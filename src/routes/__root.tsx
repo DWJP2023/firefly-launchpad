@@ -3,6 +3,7 @@ import {
   Outlet,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -11,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { jsonLdScript, organizationJsonLd } from "../lib/firefly/jsonld";
+import { content } from "../lib/firefly/content";
 
 function NotFoundComponent() {
   return (
@@ -78,8 +80,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#ffffff" },
-      { title: "Firefly Entertainment" },
-      { name: "description", content: "Firefly Entertainment — The Show Must Go On." },
       { name: "author", content: "Firefly Entertainment" },
     ],
     links: [
@@ -114,12 +114,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+  const pageContent = pathname.startsWith("/zh") ? content.zh : content.en;
+
   return (
-    <html lang="en">
+    <html lang={pathname.startsWith("/zh") ? "zh-Hans" : "en"}>
       <head>
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only absolute left-4 top-4 z-[100] h-11 items-center bg-background px-4 text-sm font-medium text-foreground ring-2 ring-ring ring-offset-2 ring-offset-background focus:not-sr-only focus:inline-flex"
+        >
+          {pageContent.accessibility.skipToContent}
+        </a>
         {children}
         <Scripts />
       </body>

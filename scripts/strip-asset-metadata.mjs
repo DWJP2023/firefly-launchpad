@@ -18,9 +18,7 @@ function stripPng(buf) {
 }
 
 const stripSvg = (s) =>
-  s
-    .replace(/<metadata>[\s\S]*?<\/metadata>/g, "")
-    .replace(/\s+xmlns:c2pa="[^"]*"/g, "");
+  s.replace(/<metadata>[\s\S]*?<\/metadata>/g, "").replace(/\s+xmlns:c2pa="[^"]*"/g, "");
 
 const files = [...readdirSync(dir).map((f) => join(dir, f)), "public/favicon.svg"];
 for (const f of files) {
