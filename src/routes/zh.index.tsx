@@ -1,8 +1,8 @@
-import { createFileRoute, Outlet, useLocation } from "@tanstack/react-router";
-import { Header } from "@/components/firefly/Header";
+import { createFileRoute } from "@tanstack/react-router";
+import { HomeContent } from "@/components/firefly/HomePage";
 import { content } from "@/lib/firefly/content";
 
-export const Route = createFileRoute("/zh")({
+export const Route = createFileRoute("/zh/")({
   head: () => ({
     meta: [
       { title: content.zh.meta.title },
@@ -17,17 +17,9 @@ export const Route = createFileRoute("/zh")({
       { rel: "alternate", hrefLang: "en", href: "/en" },
     ],
   }),
-  component: ChineseLayout,
+  component: ChineseHome,
 });
 
-function ChineseLayout() {
-  const { pathname } = useLocation();
-  const page = pathname.startsWith("/zh/team") ? "team" : "home";
-
-  return (
-    <>
-      <Header lang="zh" page={page} content={content.zh} />
-      <Outlet />
-    </>
-  );
+function ChineseHome() {
+  return <HomeContent content={content.zh} />;
 }

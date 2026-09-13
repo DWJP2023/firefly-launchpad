@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TeamPage } from "@/components/firefly/TeamPage";
+import { TeamContent } from "@/components/firefly/TeamPage";
 import { content } from "@/lib/firefly/content";
 
 export const Route = createFileRoute("/zh/team")({
@@ -21,5 +21,5 @@ export const Route = createFileRoute("/zh/team")({
 });
 
 function ChineseTeam() {
-  return <TeamPage lang="zh" content={content.zh} />;
+  return <TeamContent content={content.zh} />;
 }
