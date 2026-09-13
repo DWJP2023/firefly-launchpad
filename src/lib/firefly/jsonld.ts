@@ -26,7 +26,7 @@ export const organizationJsonLd: JsonLd = {
     "@type": "Country",
     name: "China",
   },
-  knowsLanguage: ["en", "zh-Hans"],
+  knowsLanguage: ["en", "zh-Hant"],
   description:
     "Firefly works on the client's side when an international show enters China: feasibility, advance, project control and settlement.",
   founder: { "@id": `${siteUrl}/#david` },
@@ -82,7 +82,7 @@ export function faqJsonLd(
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${siteUrl}/${language}#faq`,
-    inLanguage: language === "zh" ? "zh-Hans" : "en",
+    inLanguage: language === "zh" ? "zh-Hant" : "en",
     mainEntity: faq.items.map((item) => ({
       "@type": "Question",
       name: item.question,

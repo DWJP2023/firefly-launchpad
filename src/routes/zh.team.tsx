@@ -22,7 +22,7 @@ export const Route = createFileRoute("/zh/team")({
     links: [
       { rel: "canonical", href: `${siteUrl}/zh/team` },
       { rel: "alternate", hrefLang: "en", href: `${siteUrl}/en/team` },
-      { rel: "alternate", hrefLang: "zh-Hans", href: `${siteUrl}/zh/team` },
+      { rel: "alternate", hrefLang: "zh-Hant", href: `${siteUrl}/zh/team` },
       { rel: "alternate", hrefLang: "x-default", href: `${siteUrl}/` },
     ],
     scripts: [

@@ -11,11 +11,16 @@ export function Header({
   content,
 }: {
   lang: Language;
-  page: "home" | "team";
+  page: "home" | "team" | "clients";
   content: PageContent;
 }) {
   const [open, setOpen] = useState(false);
   const homePath = alternatePaths[lang].home;
+  const clientsPath = alternatePaths[lang].clients;
+  const accessibility =
+    lang === "zh"
+      ? { openMenu: "開啟選單", closeMenu: "關閉選單", primaryNavigation: "主要導覽" }
+      : { openMenu: "Open menu", closeMenu: "Close menu", primaryNavigation: "Primary navigation" };
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLElement>(null);
   const mobileMenuId = `mobile-menu-${lang}`;
@@ -26,12 +31,11 @@ export function Header({
       href: page === "home" ? "#services" : `${homePath}#services`,
       label: content.nav.services,
     },
-    {
-      href: page === "home" ? "#track-record" : `${homePath}#track-record`,
-      label: content.nav.trackRecord,
-    },
-    { href: page === "home" ? "#contact" : `${homePath}#contact`, label: content.nav.contact },
   ];
+  const contactLink = {
+    href: page === "home" ? "#contact" : `${homePath}#contact`,
+    label: content.nav.contact,
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -82,7 +86,7 @@ export function Header({
 
           {/* Desktop nav */}
           <nav
-            aria-label={content.accessibility.primaryNavigation}
+            aria-label={accessibility.primaryNavigation}
             className="hidden items-center gap-1 md:flex"
           >
             {navLinks.map((link) => (
@@ -95,12 +99,25 @@ export function Header({
               </a>
             ))}
             <Link
+              to={clientsPath}
+              activeProps={{ className: "text-primary" }}
+              className="inline-flex h-10 items-center px-3 text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              {content.nav.clients}
+            </Link>
+            <Link
               to={alternatePaths[lang].team}
               activeProps={{ className: "text-primary" }}
               className="inline-flex h-10 items-center px-3 text-sm font-medium text-foreground transition-colors hover:text-primary"
             >
               {content.nav.team}
             </Link>
+            <a
+              href={contactLink.href}
+              className="inline-flex h-10 items-center px-3 text-sm font-medium text-foreground transition-colors hover:text-primary"
+            >
+              {contactLink.label}
+            </a>
             <div className="ml-2 flex items-center border-l border-border pl-4">
               <LanguageSwitcher lang={lang} page={page} />
             </div>
@@ -111,7 +128,7 @@ export function Header({
             ref={menuButtonRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? content.accessibility.closeMenu : content.accessibility.openMenu}
+            aria-label={open ? accessibility.closeMenu : accessibility.openMenu}
             aria-expanded={open}
             aria-controls={mobileMenuId}
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-foreground transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
@@ -128,7 +145,7 @@ export function Header({
             <nav
               ref={mobileNavRef}
               id={mobileMenuId}
-              aria-label={content.accessibility.primaryNavigation}
+              aria-label={accessibility.primaryNavigation}
               onKeyDown={handleMobileMenuKeyDown}
               className="mx-auto flex max-w-5xl flex-col gap-1 py-4"
             >
@@ -143,12 +160,26 @@ export function Header({
                 </a>
               ))}
               <Link
+                to={clientsPath}
+                onClick={() => setOpen(false)}
+                className="flex h-11 items-center text-base font-medium text-foreground transition-colors hover:text-primary"
+              >
+                {content.nav.clients}
+              </Link>
+              <Link
                 to={alternatePaths[lang].team}
                 onClick={() => setOpen(false)}
                 className="flex h-11 items-center text-base font-medium text-foreground transition-colors hover:text-primary"
               >
                 {content.nav.team}
               </Link>
+              <a
+                href={contactLink.href}
+                onClick={() => setOpen(false)}
+                className="flex h-11 items-center text-base font-medium text-foreground transition-colors hover:text-primary"
+              >
+                {contactLink.label}
+              </a>
               <div className="mt-2 flex h-11 items-center border-t border-border pt-2">
                 <LanguageSwitcher lang={lang} page={page} />
               </div>

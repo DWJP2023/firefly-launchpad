@@ -22,13 +22,13 @@ export const Route = createFileRoute("/zh/")({
     links: [
       { rel: "canonical", href: `${siteUrl}/zh` },
       { rel: "alternate", hrefLang: "en", href: `${siteUrl}/en` },
-      { rel: "alternate", hrefLang: "zh-Hans", href: `${siteUrl}/zh` },
+      { rel: "alternate", hrefLang: "zh-Hant", href: `${siteUrl}/zh` },
       { rel: "alternate", hrefLang: "x-default", href: `${siteUrl}/` },
     ],
     scripts: [
       {
         type: "application/ld+json",
-        children: jsonLdScript(faqJsonLd("zh", content.zh.faq)),
+        children: jsonLdScript(faqJsonLd("zh", content.zh.sections.faq)),
       },
     ],
   }),

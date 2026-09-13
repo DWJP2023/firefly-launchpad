@@ -8,7 +8,11 @@ export const Route = createFileRoute("/zh")({
 
 function ChineseLayout() {
   const { pathname } = useLocation();
-  const page = pathname.startsWith("/zh/team") ? "team" : "home";
+  const page = pathname.startsWith("/zh/team")
+    ? "team"
+    : pathname.startsWith("/zh/clients")
+      ? "clients"
+      : "home";
 
   return (
     <>

@@ -118,7 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
   const pageContent = pathname.startsWith("/zh") ? content.zh : content.en;
 
   return (
-    <html lang={pathname.startsWith("/zh") ? "zh-Hans" : "en"}>
+    <html lang={pathname.startsWith("/zh") ? "zh-Hant" : "en"}>
       <head>
         <HeadContent />
       </head>
@@ -127,7 +127,7 @@ function RootShell({ children }: { children: ReactNode }) {
           href="#main-content"
           className="sr-only absolute left-4 top-4 z-[100] h-11 items-center bg-background px-4 text-sm font-medium text-foreground ring-2 ring-ring ring-offset-2 ring-offset-background focus:not-sr-only focus:inline-flex"
         >
-          {pageContent.accessibility.skipToContent}
+          {pathname.startsWith("/zh") ? "跳至主要內容" : "Skip to main content"}
         </a>
         {children}
         <Scripts />

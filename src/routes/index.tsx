@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
     links: [
       { rel: "canonical", href: "https://www.fireflyentertainment.net/" },
       { rel: "alternate", hrefLang: "en", href: "https://www.fireflyentertainment.net/en" },
-      { rel: "alternate", hrefLang: "zh-Hans", href: "https://www.fireflyentertainment.net/zh" },
+      { rel: "alternate", hrefLang: "zh-Hant", href: "https://www.fireflyentertainment.net/zh" },
       { rel: "alternate", hrefLang: "x-default", href: "https://www.fireflyentertainment.net/" },
     ],
   }),
@@ -45,7 +45,7 @@ function LandingPage() {
           {landing.taglineEn}
         </h1>
         <p
-          lang="zh-Hans"
+          lang="zh-Hant"
           className="mt-3 text-2xl font-medium tracking-tight text-foreground sm:text-3xl md:text-4xl"
         >
           {landing.taglineZh}
@@ -53,26 +53,26 @@ function LandingPage() {
         <Logo className="mt-10 h-6 w-auto" />
         <div className="mt-8 space-y-1 text-sm leading-relaxed text-muted-foreground">
           <p>{landing.descriptorEn}</p>
-          <p lang="zh-Hans">{landing.descriptorZh}</p>
+          <p lang="zh-Hant">{landing.descriptorZh}</p>
         </div>
         <nav
           className="mt-8 flex items-center gap-4 text-sm font-medium tracking-wide text-foreground"
-          aria-label={landing.languageSelectionLabel}
+          aria-label="Language selection"
         >
           <LanguageLink
             to="/en"
             label={landing.english}
             lang="en"
             hrefLang="en"
-            ariaLabel={landing.englishAriaLabel}
+            ariaLabel="Switch to English"
           />
           <span className="h-4 w-px bg-border" aria-hidden="true" />
           <LanguageLink
             to="/zh"
             label={landing.chinese}
-            lang="zh-Hans"
-            hrefLang="zh-Hans"
-            ariaLabel={landing.chineseAriaLabel}
+            lang="zh-Hant"
+            hrefLang="zh-Hant"
+            ariaLabel="切換至中文"
           />
         </nav>
       </div>
@@ -89,8 +89,8 @@ function LanguageLink({
 }: {
   to: "/en" | "/zh";
   label: string;
-  lang: "en" | "zh-Hans";
-  hrefLang: "en" | "zh-Hans";
+  lang: "en" | "zh-Hant";
+  hrefLang: "en" | "zh-Hant";
   ariaLabel: string;
 }) {
   return (

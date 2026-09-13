@@ -3,31 +3,43 @@
   <url>
     <loc>https://www.fireflyentertainment.net/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.fireflyentertainment.net/zh" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
   <url>
     <loc>https://www.fireflyentertainment.net/en</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.fireflyentertainment.net/zh" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
   <url>
     <loc>https://www.fireflyentertainment.net/zh</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.fireflyentertainment.net/zh" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
   <url>
     <loc>https://www.fireflyentertainment.net/en/team</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/team" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.fireflyentertainment.net/zh/team" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/team" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
   <url>
     <loc>https://www.fireflyentertainment.net/zh/team</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/team" />
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.fireflyentertainment.net/zh/team" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/team" />
+  </url>
+  <url>
+    <loc>https://www.fireflyentertainment.net/en/clients</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/clients" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/clients" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
+  </url>
+  <url>
+    <loc>https://www.fireflyentertainment.net/zh/clients</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/clients" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/clients" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
 </urlset>

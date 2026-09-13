@@ -7,7 +7,10 @@ export function HomeContent({ content }: { content: PageContent }) {
       <main id="main-content">
         <section id="about" className="bg-white px-6 py-24 md:py-32 lg:px-8">
           <div className="mx-auto max-w-5xl">
-            <div className="max-w-3xl">
+            <p className="max-w-3xl text-2xl font-medium leading-relaxed text-foreground md:text-3xl">
+              {content.descriptor}
+            </p>
+            <div className="mt-16 max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                 {content.brandLine}
               </p>
@@ -35,6 +38,13 @@ export function HomeContent({ content }: { content: PageContent }) {
                   <p className="text-sm font-medium tracking-[0.16em] text-primary">{item.index}</p>
                   <h3 className="mt-6 text-xl font-medium text-foreground">{item.title}</h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground">{item.description}</p>
+                  <ul className="mt-5 divide-y divide-border border-y border-border text-sm leading-relaxed text-muted-foreground">
+                    {item.covers.map((cover) => (
+                      <li key={cover} className="py-2 pl-4">
+                        {cover}
+                      </li>
+                    ))}
+                  </ul>
                   <p className="mt-5 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground">
                     {item.deliverable}
                   </p>
@@ -44,36 +54,13 @@ export function HomeContent({ content }: { content: PageContent }) {
           </div>
         </section>
 
-        <section id="track-record" className="bg-white px-6 py-24 md:py-32 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-              {content.sections.trackRecord.title}
-            </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              {content.sections.trackRecord.note}
-            </p>
-            <div className="mt-12 grid gap-10 md:grid-cols-3">
-              {content.sections.trackRecord.groups.map((group) => (
-                <section key={group.title}>
-                  <h3 className="text-lg font-medium text-foreground">{group.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="faq" className="bg-muted px-6 py-24 md:py-32 lg:px-8">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-              {content.faq.title}
+              {content.sections.faq.title}
             </h2>
             <div className="mt-10 max-w-3xl divide-y divide-border border-y border-border">
-              {content.faq.items.map((item) => (
+              {content.sections.faq.items.map((item) => (
                 <article key={item.question} className="py-8">
                   <h3 className="text-lg font-medium leading-relaxed text-foreground">
                     {item.question}

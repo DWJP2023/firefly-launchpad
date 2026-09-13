@@ -8,7 +8,11 @@ export const Route = createFileRoute("/en")({
 
 function EnglishLayout() {
   const { pathname } = useLocation();
-  const page = pathname.startsWith("/en/team") ? "team" : "home";
+  const page = pathname.startsWith("/en/team")
+    ? "team"
+    : pathname.startsWith("/en/clients")
+      ? "clients"
+      : "home";
 
   return (
     <>
