@@ -1,3 +1,5 @@
+import { enContent, zhContent } from "./content";
+
 export const siteUrl = "https://www.fireflyentertainment.net";
 const organizationId = `${siteUrl}/#organization`;
 const davidLinkedIn = "https://www.linkedin.com/in/davidwhj/";
@@ -6,10 +8,10 @@ const fireflyLinkedIn = "https://www.linkedin.com/company/106199096/";
 type JsonLd = Record<string, unknown>;
 
 const serviceNames = [
-  "China Entry Feasibility Study",
-  "China Live Readiness Review",
-  "China Project Assurance",
-  "China Local Producer Mandate",
+  "Offer and Market Assessment",
+  "Advance and Readiness",
+  "Project Assurance",
+  "Local Producer Mandate",
 ] as const;
 
 export const organizationJsonLd: JsonLd = {
@@ -47,31 +49,24 @@ export const organizationJsonLd: JsonLd = {
   },
 };
 
-const team = {
-  en: [
-    ["david", "David J.P. Wang", "Chief Executive Officer"],
-    ["allen", "Allen Chen", "Project director, artist and touring operations"],
-    ["jason", "Jason Tao", "VP Production"],
-    ["yifeng", "Yifeng Zou", "Production director"],
-  ],
-  zh: [
-    ["david", "王璟平", "首席执行官"],
-    ["allen", "陈煜林", "项目总监，艺人与巡演运营"],
-    ["jason", "陶坚亮", "制作副总裁"],
-    ["yifeng", "邹一峰", "制作总监"],
-  ],
-} as const;
+const teamIds = ["david", "allen", "jason", "yifeng"] as const;
 
 export function teamJsonLd(language: "en" | "zh"): JsonLd[] {
-  return team[language].map(([id, name, jobTitle]) => ({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${siteUrl}/#${id}`,
-    name,
-    jobTitle,
-    worksFor: { "@id": organizationId },
-    ...(id === "david" ? { sameAs: [davidLinkedIn] } : {}),
-  }));
+  const members = language === "en" ? enContent.team.members : zhContent.team.members;
+
+  return members.map((member, index) => {
+    const id = teamIds[index]!;
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": `${siteUrl}/#${id}`,
+      name: member.name,
+      jobTitle: member.role,
+      worksFor: { "@id": organizationId },
+      ...(id === "david" ? { sameAs: [davidLinkedIn] } : {}),
+    };
+  });
 }
 
 export function faqJsonLd(

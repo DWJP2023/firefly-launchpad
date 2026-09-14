@@ -28,6 +28,7 @@
     <loc>https://www.fireflyentertainment.net/zh/team</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/team" />
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/team" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
   <url>
     <loc>https://www.fireflyentertainment.net/en/clients</loc>
@@ -39,7 +40,6 @@
     <loc>https://www.fireflyentertainment.net/zh/clients</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.fireflyentertainment.net/en/clients" />
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://www.fireflyentertainment.net/zh/clients" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.fireflyentertainment.net/" />
   </url>
 </urlset>

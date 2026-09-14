@@ -181,7 +181,7 @@ const trackRecordGroupsZh: CreditGroup[] = [
   },
 ];
 
-const en: PageContent = {
+export const enContent: PageContent = {
   lang: "en",
   siteName: "Firefly Entertainment",
   tagline: "The Show Must Go On",
@@ -489,7 +489,7 @@ const en: PageContent = {
   },
 };
 
-const zh: PageContent = {
+export const zhContent: PageContent = {
   lang: "zh",
   siteName: "Firefly Entertainment",
   tagline: "好戲，必須上演",
@@ -720,7 +720,7 @@ const zh: PageContent = {
       {
         name: "陶堅亮",
         role: "製作副總裁",
-        bio: "自 2011 年起在中國擔任製作總監，2021 年起擔任專案總導演。作品覆蓋國際藝人演唱會、巡演、音樂節與大型現場活動，工作範圍自制作方案起，至供應商與 crew 對接，直到演出日執行。",
+        bio: "自 2011 年起在中國擔任製作總監，2021 年起擔任專案總導演。作品覆蓋國際藝人演唱會、巡演、音樂節與大型現場活動，工作範圍自製作方案起，至供應商與 crew 對接，直到演出日執行。",
         credits: [
           {
             title: "演唱會與巡演",
@@ -788,7 +788,7 @@ const zh: PageContent = {
   },
 };
 
-export const content = { en, zh };
+export const content = { en: enContent, zh: zhContent };
 
 export const alternatePaths: Record<Language, { home: string; team: string; clients: string }> = {
   en: { home: "/en", team: "/en/team", clients: "/en/clients" },
