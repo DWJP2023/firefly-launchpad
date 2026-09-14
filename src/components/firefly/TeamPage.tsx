@@ -20,12 +20,38 @@ export function TeamContent({ content }: { content: PageContent }) {
                 className="py-10 md:grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-12"
               >
                 <div>
-                  <h2 className="text-2xl font-medium tracking-tight text-foreground">
-                    {member.name}
-                  </h2>
-                  <p className="mt-2 text-sm font-medium tracking-wide text-primary">
-                    {member.role}
-                  </p>
+                  {member.photo ? (
+                    <div className="flex items-center gap-4 md:block">
+                      <div className="w-[88px] shrink-0 md:mb-6 md:w-40">
+                        <img
+                          src={`/photos/team/${member.photo}`}
+                          alt={member.name}
+                          width={640}
+                          height={640}
+                          loading="lazy"
+                          decoding="async"
+                          className="block aspect-square h-auto w-full rounded-[2px] border border-border object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                          {member.name}
+                        </h2>
+                        <p className="mt-2 text-sm font-medium tracking-wide text-primary">
+                          {member.role}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <h2 className="text-2xl font-medium tracking-tight text-foreground">
+                        {member.name}
+                      </h2>
+                      <p className="mt-2 text-sm font-medium tracking-wide text-primary">
+                        {member.role}
+                      </p>
+                    </>
+                  )}
                 </div>
                 <div className="mt-6 md:mt-0">
                   <p className="leading-relaxed text-muted-foreground">{member.bio}</p>

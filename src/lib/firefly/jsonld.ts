@@ -49,22 +49,19 @@ export const organizationJsonLd: JsonLd = {
   },
 };
 
-const teamIds = ["david", "allen", "jason", "yifeng"] as const;
-
 export function teamJsonLd(language: "en" | "zh"): JsonLd[] {
   const members = language === "en" ? enContent.team.members : zhContent.team.members;
 
-  return members.map((member, index) => {
-    const id = teamIds[index]!;
-
+  return members.map((member) => {
     return {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": `${siteUrl}/#${id}`,
+      "@id": `${siteUrl}/#${member.id}`,
       name: member.name,
       jobTitle: member.role,
       worksFor: { "@id": organizationId },
-      ...(id === "david" ? { sameAs: [davidLinkedIn] } : {}),
+      ...(member.id === "david" ? { sameAs: [davidLinkedIn] } : {}),
+      ...(member.photo ? { image: `${siteUrl}/photos/team/${member.photo}` } : {}),
     };
   });
 }

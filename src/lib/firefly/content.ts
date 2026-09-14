@@ -23,11 +23,15 @@ export type ServiceItem = {
 
 export type CreditGroup = { title: string; items: string[] };
 
+export type TeamMemberId = "david" | "allen" | "jason" | "yifeng";
+
 export type TeamMember = {
+  id: TeamMemberId;
   name: string;
   role: string;
   bio: string;
   credits: CreditGroup[];
+  photo?: string;
 };
 
 export type FaqItem = { question: string; answer: string };
@@ -337,6 +341,7 @@ export const enContent: PageContent = {
       "Firefly fields one China-facing team for international live entertainment and experiential projects. Each of the four is named in the project scope before work starts. Budget and settlement review sits with David J.P. Wang and Allen Chen.",
     members: [
       {
+        id: "david",
         name: "David J.P. Wang",
         role: "Chief Executive Officer",
         bio: "Working in international touring and live events in Greater China since 2003, and a licensed performance agent. Before Firefly, executive vice president at Complex Chinese, managing director at NetEase Fever, and vice president of IP acquisition and development and of the live division at Taihe Music Group. He acquired the China rights to Grande Exhibitions' Da Vinci – The Genius and promoted the Shanghai run, and ran the NetEase FEVER Carnival at teamLab Borderless Shanghai. Since founding Firefly in 2024 he has signed the CMC framework partnership and delivered the Clean Bandit China tour.",
@@ -381,6 +386,7 @@ export const enContent: PageContent = {
         ],
       },
       {
+        id: "allen",
         name: "Allen Chen",
         role: "Project director, artist and touring operations",
         bio: "Fifteen years in artist management and touring operations across K-pop, Mandarin pop, dance music and classical, and on David J.P. Wang's China projects since 2011. Before Nuchuan Culture, operations manager at NetEase Cloud Music's party-site business and performance manager at Taihe Music Group. He connects the artist, client, promoter, venue and production workstreams and runs show-day communication.",
@@ -419,6 +425,7 @@ export const enContent: PageContent = {
         ],
       },
       {
+        id: "jason",
         name: "Jason Tao",
         role: "VP Production",
         bio: "Working as a production director in China since 2011, and general director on projects since 2021. His record covers international-artist concerts, touring, festivals and large-format live events, from the production plan through supplier and crew interfaces to show-day execution.",
@@ -464,6 +471,7 @@ export const enContent: PageContent = {
         ],
       },
       {
+        id: "yifeng",
         name: "Yifeng Zou",
         role: "Production director",
         bio: "Co-producing with Jason Tao from 2011 to 2021 across the concerts and festivals above, and producing independently since 2021. He tracks requirements, holds owners to deadlines, runs the production schedule and controls the show day.",
@@ -644,6 +652,7 @@ export const zhContent: PageContent = {
       "Firefly 以一支面向中國的團隊承接國際現場演出與體驗類專案。以下四人在工作啟動之前即寫入專案範圍。預算與結算複核由王璟平與陳煜林負責。",
     members: [
       {
+        id: "david",
         name: "王璟平",
         role: "執行長",
         bio: "自 2003 年起從事大中華區的國際巡演與現場演出，持有演出經紀人資格證。加入 Firefly 之前，任 Complex Chinese 執行副總裁、網易 Fever 總經理，以及太合音樂 IP 收購與開發副總裁、演出事業部副總裁。取得 Grande Exhibitions 旗下 Da Vinci – The Genius 的中國權利並主辦上海站，主理 teamLab Borderless 上海的網易 FEVER 嘉年華。2024 年創辦 Firefly 後，簽訂 CMC 框架合作，並完成 Clean Bandit 中國巡演。",
@@ -688,6 +697,7 @@ export const zhContent: PageContent = {
         ],
       },
       {
+        id: "allen",
         name: "陳煜林",
         role: "專案總監，藝人與巡演運營",
         bio: "十五年藝人管理與巡演運營經驗，覆蓋韓流、華語流行、電子舞曲與古典，並自 2011 年起參與王璟平的中國專案。加入怒川文化之前，任網易雲音樂線下場景業務運營經理、太合音樂演出經理。在專案中銜接藝人、客戶、主辦方、場館與製作各條線，並負責演出日的溝通。",
@@ -718,6 +728,7 @@ export const zhContent: PageContent = {
         ],
       },
       {
+        id: "jason",
         name: "陶堅亮",
         role: "製作副總裁",
         bio: "自 2011 年起在中國擔任製作總監，2021 年起擔任專案總導演。作品覆蓋國際藝人演唱會、巡演、音樂節與大型現場活動，工作範圍自製作方案起，至供應商與 crew 對接，直到演出日執行。",
@@ -763,6 +774,7 @@ export const zhContent: PageContent = {
         ],
       },
       {
+        id: "yifeng",
         name: "鄒一峰",
         role: "製作總監",
         bio: "2011 至 2021 年與陶堅亮共同製作上述演唱會與音樂節專案，2021 年起獨立擔任製作人。負責需求跟蹤、責任方的節點把控、製作日程執行與演出日現場控制。",
